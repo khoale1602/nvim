@@ -1,6 +1,6 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = { "rafamadriz/friendly-snippets", "onsails/lspkind.nvim" },
 	version = "1.*",
 	opts = {
 		keymap = { preset = "default", ["<CR>"] = { "accept", "fallback" } },
@@ -28,26 +28,6 @@ return {
 				create_undo_point = true,
 				auto_brackets = {
 					enabled = true,
-				},
-			},
-			menu = {
-				draw = {
-					columns = { { "label", "label_detail", gap = 1 }, { "kind" } },
-					components = {
-						label = {
-							width = { max = 30, fill = true },
-							text = function(ctx)
-								return ctx.label
-							end,
-						},
-						label_detail = {
-							width = { fill = true, max = 15 },
-							text = function(ctx)
-								return ctx.label_detail
-							end,
-						},
-						source_name = {},
-					},
 				},
 			},
 		},
