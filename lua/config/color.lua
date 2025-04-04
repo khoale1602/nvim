@@ -95,4 +95,4 @@ hl("NormalFloat", nil, color.base01)
 hl("FloatBorder", color.base01, color.base01)
 
 -- Extra
-cmd("hi StatusLine gui=strikethrough")
+-- cmd("hi StatusLine gui=strikethrough")
