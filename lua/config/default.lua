@@ -14,6 +14,8 @@ opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
 opt.foldlevel = 99
 
+vim.opt.fillchars:append({ eob = " " })
+
 local text_signs = {
 	[vim.diagnostic.severity.ERROR] = "󰅚",
 	[vim.diagnostic.severity.WARN] = "󰀪",
