@@ -8,6 +8,7 @@ o.wrap = false
 o.swapfile = false
 o.tabstop = 4
 o.shiftwidth = 4
+o.clipboard = "unnamedplus"
 
 local map = vim.keymap.set
 
@@ -36,6 +37,13 @@ vim.pack.add({
 	},
 	{
 		src = "https://github.com/stevearc/conform.nvim",
+	},
+	{
+		src = "https://github.com/Saghen/blink.cmp",
+		version = "v1.6.0",
+	},
+	{
+		src = "https://github.com/rafamadriz/friendly-snippets",
 	},
 })
 
@@ -76,6 +84,22 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+-- blink
+require("blink.cmp").setup({
+	keymap = { preset = "default", ["<CR>"] = { "accept", "fallback" } },
+	completion = {
+		list = {
+			selection = { preselect = true, auto_insert = false },
+		},
+	},
+	appearance = {
+		nerd_font_variant = "mono",
+	},
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+	},
+})
+
 -- formatter
 require("conform").setup({
 	formatters_by_ft = {
@@ -87,6 +111,7 @@ require("conform").setup({
 map("n", "<leader>fm", function()
 	require("conform").format()
 end)
+
 -- theme
 cmd("colorscheme vague")
 cmd([[hi statusline guibg=NONE]])
